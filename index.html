@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Chappidi — Software Engineer</title>
+  <meta name="description" content="Sai Chappidi — Computer Science & Engineering student at The Ohio State University. Software engineer, builder, and mentor." />
+  <meta property="og:title" content="Sai Chappidi — Software Engineer" />
+  <meta property="og:description" content="CS & Engineering @ Ohio State. Systems, full-stack, and AI." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236ee7ff'/%3E%3Cstop offset='0.5' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23f0abfc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='30' fill='%2306070d'%3ESC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow glow-1" aria-hidden="true"></div>
+  <div class="bg-glow glow-2" aria-hidden="true"></div>
+
+  <!-- Progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__brand">
+      <span class="nav__logo">SC</span>
+      <span class="nav__name">Sai Chappidi</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav__cta">Contact</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="nav__k" id="openPalette" aria-label="Open command palette">
+        <span class="nav__k-label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <button class="nav__theme" id="themeBtn" aria-label="Switch theme" title="Switch theme">
+        <span class="nav__theme-dot"></span>
+        <span class="nav__theme-name" id="themeName">Aurora</span>
+      </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Command palette -->
+  <div class="palette" id="palette" hidden>
+    <div class="palette__backdrop" id="paletteBackdrop"></div>
+    <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="palette__search">
+        <span class="palette__search-icon">⌕</span>
+        <input id="paletteInput" type="text" placeholder="Type a command or search…" autocomplete="off" spellcheck="false" />
+        <kbd>esc</kbd>
+      </div>
+      <ul class="palette__list" id="paletteList"></ul>
+      <div class="palette__foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <canvas class="hero__particles" id="particles" aria-hidden="true"></canvas>
+      <div class="hero__spotlight" id="spotlight" aria-hidden="true"></div>
+      <div class="hero__grid">
+        <div class="hero__inner reveal">
+          <h1 class="hero__title">
+            <span class="grad-text">Sai Chappidi</span>
+          </h1>
+          <h2 class="hero__subtitle">
+            <span class="typed" id="typed"></span><span class="cursor-blink">|</span>
+          </h2>
+          <p class="hero__lead">
+            Computer Science &amp; Engineering student at
+            <strong>The Ohio State University</strong>. Experienced engineer
+            proficient in architecting high-performance products, from low-level
+            systems programming in C to scalable full-stack web applications and
+            AI. Dedicated to utilizing engineering principles to create efficient
+            and secure software.
+          </p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View my work</a>
+            <a href="#contact" class="btn btn--ghost">Get in touch</a>
+          </div>
+          <div class="hero__socials">
+            <a href="mailto:saisrisuhas.chappidi@gmail.com" aria-label="Email">Email</a>
+            <span class="dot-sep">•</span>
+            <a href="https://github.com/SaiChappidi" target="_blank" rel="noopener">GitHub</a>
+            <span class="dot-sep">•</span>
+            <a href="https://www.linkedin.com/in/saichappidi12" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Interactive terminal -->
+        <div class="term reveal" id="term">
+          <div class="term__bar">
+            <span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span>
+            <em>visitor@saichappidi: ~</em>
+          </div>
+          <div class="term__body" id="termBody" role="log" aria-live="polite">
+            <div class="term__line"><span class="term__path">~</span> <span class="term__muted">type</span> <span class="term__cmd">help</span> <span class="term__muted">to get started, or try</span> <span class="term__cmd">projects</span></div>
+          </div>
+          <div class="term__input-row" id="termInputRow">
+            <span class="term__prompt">visitor@sai<span class="term__path">~</span>$</span>
+            <input id="termInput" class="term__input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" />
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="section__head reveal">
+        <span class="section__index">01</span>
+        <h2 class="section__title">About me</h2>
+      </div>
+      <div class="about reveal">
+        <div class="about__text">
+          <p>
+            I am a software engineer driven by a passion for building
+            high-performance systems. My technical experience spans the entire
+            stack, from developing low-level applications in C to creating
+            high-level, scalable full-stack and Java-based applications. I value
+            efficiency and clarity when creating software, so my work reflects
+            both, with programs that are easy to dissect and understand. I thrive
+            in competitive environments with tangible stakes.
+          </p>
+          <p>
+            Beyond technical implementation, my background as a nonprofit
+            co-founder and engineering mentor has reinforced collaboration,
+            leadership, and strong yet understandable communication, especially
+            when bridging the gap between technical teams and non-technical
+            stakeholders. I bring a mission-driven mindset to engineering teams
+            looking to solve complex problems at scale.
+          </p>
+          <ul class="about__facts">
+            <li><span>📍</span> Columbus, OH</li>
+            <li><span>🎓</span> B.S. CSE — Ohio State, May 2027</li>
+            <li><span>⚡</span> Salesforce Certified Agentforce Specialist</li>
+            <li><span>💬</span> Leadership · Problem Solving · Collaboration</li>
+          </ul>
+        </div>
+        <aside class="about__card">
+          <div class="card-window">
+            <div class="card-window__bar">
+              <span></span><span></span><span></span>
+              <em>sai.js</em>
+            </div>
+            <pre class="code"><code><span class="c-key">const</span> <span class="c-var">sai</span> = {
+  <span class="c-prop">role</span>: <span class="c-str">"Software Engineer"</span>,
+  <span class="c-prop">school</span>: <span class="c-str">"Ohio State University"</span>,
+  <span class="c-prop">major</span>: <span class="c-str">"Computer Science &amp; Engineering"</span>,
+  <span class="c-prop">focus</span>: [<span class="c-str">"Systems"</span>, <span class="c-str">"Full-Stack"</span>, <span class="c-str">"AI"</span>],
+  <span class="c-prop">shipping</span>: <span class="c-key">true</span>,
+};</code></pre>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="section__head reveal">
+        <span class="section__index">02</span>
+        <h2 class="section__title">Experience</h2>
+      </div>
+      <div class="timeline">
+        <article class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-top">
+              <h3>Software Engineering Intern</h3>
+              <span class="tl-date">May 2025 – Aug 2025</span>
+            </div>
+            <p class="tl-org">WineDirect</p>
+            <ul>
+              <li>Built a comprehensive documentation website and owned its ongoing updates.</li>
+              <li>Optimized <strong>1,000+ shipping orders</strong> using Salesforce Flows and Apex, boosting efficiency.</li>
+              <li>Resolved shipping defects with Apex, improving distribution accuracy.</li>
+              <li>Implemented a Lightning Web Component to surface incorrect backlogs in Salesforce.</li>
+              <li>Authored clear, end-to-end documentation for the company's Salesforce Flows, streamlining onboarding and long-term maintenance.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-top">
+              <h3>Co-founder &amp; Board Member</h3>
+              <span class="tl-date">Dec 2021 – Present</span>
+            </div>
+            <p class="tl-org">J-To-A · Dublin, OH</p>
+            <ul>
+              <li>Created and maintained <a href="https://j-to-a.org" target="_blank" rel="noopener"><strong>j-to-a.org</strong></a>, garnering over 70 students and 35 volunteers.</li>
+              <li>Led outreach, emailing over <strong>30 schools</strong> and news sources for advertisements, securing 50 volunteers and 70+ students.</li>
+              <li>Assisted in gaining over <strong>$130,000</strong> in donations and grants used to promote the organization.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-top">
+              <h3>Sensei (Coding Instructor)</h3>
+              <span class="tl-date">Jul 2023 – Apr 2026</span>
+            </div>
+            <p class="tl-org">Code Ninjas · Dublin, OH</p>
+            <ul>
+              <li>Guided <strong>50+ children</strong> through game development with C# in Unity, JavaScript, and Roblox Lua.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="section__head reveal">
+        <span class="section__index">03</span>
+        <h2 class="section__title">Projects</h2>
+      </div>
+      <div class="projects">
+        <article class="proj reveal">
+          <div class="proj__top">
+            <h3>BlinkVM</h3>
+            <span class="proj__date">Apr 2026</span>
+          </div>
+          <p class="proj__tag">microVM Monitor</p>
+          <p class="proj__desc">
+            A lightweight virtualization monitor in C using the Linux KVM API to
+            manage hardware-accelerated guest VMs. Implements vCPU execution
+            loops, guest memory mapping, and KVM exit handling for I/O and serial
+            console passthrough, wrapped in a unified CLI with macOS/QEMU
+            fallbacks.
+          </p>
+          <ul class="proj__stack">
+            <li>C</li><li>Linux KVM</li><li>QEMU</li>
+          </ul>
+        </article>
+
+        <article class="proj proj--link reveal">
+          <a class="proj__cover" href="https://github.com/SaiChappidi/SplitTheBill" target="_blank" rel="noopener" aria-label="SplitTheBill on GitHub"></a>
+          <div class="proj__top">
+            <h3>SplitTheBill <span class="proj__arrow" aria-hidden="true">↗</span></h3>
+            <span class="proj__date">Apr 2026</span>
+          </div>
+          <p class="proj__tag">Expense Splitting Web App</p>
+          <p class="proj__desc">
+            A Rails web app for creating trips, logging categorized expenses, and
+            splitting costs among participants. Designed a relational domain model
+            with secure password authentication and scoped, per-participant trip
+            access.
+          </p>
+          <ul class="proj__stack">
+            <li>Ruby on Rails</li><li>JavaScript</li><li>HTML/CSS</li><li>Docker</li>
+          </ul>
+        </article>
+
+        <article class="proj proj--link reveal">
+          <a class="proj__cover" href="https://github.com/SaiChappidi/RescueAI" target="_blank" rel="noopener" aria-label="RescueAI on GitHub"></a>
+          <div class="proj__top">
+            <h3>RescueAI <span class="proj__arrow" aria-hidden="true">↗</span></h3>
+            <span class="proj__date">Feb 2025</span>
+          </div>
+          <p class="proj__tag">AI Search &amp; Rescue</p>
+          <p class="proj__desc">
+            An AI system to locate people in infrared imagery for firefighters and
+            search-and-rescue teams, powered by a custom-trained <strong>YOLOv8</strong>
+            detector, paired with a Q-learning algorithm that guides a drone
+            across a grid over <strong>1,000+ episodes</strong>.
+          </p>
+          <ul class="proj__stack">
+            <li>Python</li><li>YOLOv8</li><li>PyTorch</li><li>Q-Learning</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <span class="section__index">04</span>
+        <h2 class="section__title">Skills &amp; Tools</h2>
+      </div>
+      <div class="skills reveal">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="chips">
+            <span>Java</span><span>Python</span><span>C</span><span>C++</span><span>C#</span>
+            <span>JavaScript</span><span>Apex</span><span>SQL</span><span>SOQL</span><span>Ruby</span>
+            <span>Lua</span><span>HTML</span><span>CSS</span><span>x86-64 Asm</span><span>MATLAB</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks &amp; Libraries</h3>
+          <div class="chips">
+            <span>React</span><span>Node.js</span><span>Ruby on Rails</span><span>ASP.NET</span>
+            <span>Tailwind</span><span>Bootstrap</span><span>JUnit</span>
+            <span>REST</span><span>MVC</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Platforms &amp; Tools</h3>
+          <div class="chips">
+            <span>Salesforce</span><span>Docker</span><span>Git</span><span>Microsoft Azure</span>
+            <span>PostgreSQL</span><span>MySQL</span><span>T-SQL</span><span>Postman</span>
+            <span>Jira</span><span>Confluence</span><span>CI/CD</span><span>OpenAI</span>
+            <span>Gemini</span><span>AutoCAD</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Practices</h3>
+          <div class="chips">
+            <span>Agile</span><span>Leadership</span><span>Communication</span>
+            <span>Collaboration</span><span>Problem Solving</span><span>Perseverance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="contact__card reveal">
+        <span class="section__index">05</span>
+        <h2 class="contact__title">Let's build something great together.</h2>
+        <p class="contact__lead">
+          I'm actively seeking software engineering internship and new-grad
+          opportunities. Whether you have a specific role in mind or would simply
+          like to discuss technology, I'd welcome the conversation, so please feel
+          free to reach out.
+        </p>
+        <a href="mailto:saisrisuhas.chappidi@gmail.com" class="btn btn--primary btn--lg">
+          saisrisuhas.chappidi@gmail.com
+        </a>
+        <div class="contact__resume">
+          <a href="Sai_Chappidi_Portfolio_Resume.pdf" target="_blank" rel="noopener" class="btn btn--ghost">View résumé</a>
+          <a href="Sai_Chappidi_Portfolio_Resume.pdf" download="Sai_Chappidi_Portfolio_Resume.pdf" class="btn btn--ghost">Download résumé</a>
+        </div>
+        <div class="contact__links">
+          <a href="https://www.linkedin.com/in/saichappidi12" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Sai Chappidi · Designed &amp; built with care.</p>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js?v=8"></script>
+</body>
+</html>
