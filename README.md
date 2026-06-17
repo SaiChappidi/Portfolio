@@ -4,9 +4,7 @@ Personal portfolio website for **Sai Chappidi**, Computer Science & Engineering 
 
 ## Live site
 
-After deploying with GitHub Pages, the site will be available at:
-
-**https://saichappidi.github.io/Portfolio/**
+**https://saichappidi-portfolio.vercel.app/**
 
 ## Features
 
