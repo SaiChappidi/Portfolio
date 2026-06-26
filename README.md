@@ -2,12 +2,6 @@
 
 Personal portfolio website for **Sai Chappidi**, Computer Science & Engineering student at The Ohio State University.
 
-## Live site
-
-After deploying with GitHub Pages, the site will be available at:
-
-**https://saichappidi.github.io/Portfolio/**
-
 ## Features
 
 - Responsive single-page layout (About, Experience, Projects, Skills, Contact)
@@ -42,17 +36,9 @@ You can also open `index.html` directly in a browser.
 ├── index.html
 ├── styles.css
 ├── script.js
-├── Sai_Chappidi_Portfolio_Resume.pdf
+├── portfolioresume.pdf
 └── README.md
 ```
-
-## Deploy with GitHub Pages
-
-1. Push this repository to [github.com/SaiChappidi/Portfolio](https://github.com/SaiChappidi/Portfolio)
-2. Go to **Settings → Pages**
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**
-4. Choose branch **`main`**, folder **`/ (root)`**, then save
-5. Wait a minute, then visit **https://saichappidi.github.io/Portfolio/**
 
 ## Contact
 

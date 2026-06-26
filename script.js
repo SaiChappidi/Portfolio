@@ -433,7 +433,7 @@ if (themeBtn) themeBtn.addEventListener("click", cycleTheme);
       ];
     },
     resume() {
-      window.open("Sai_Chappidi_Portfolio_Resume.pdf", "_blank");
+      window.open("portfolioresume.pdf", "_blank");
       return ['<span class="term__ok">Opening résumé.pdf in a new tab\u2026</span>'];
     },
     contact() {
@@ -537,8 +537,8 @@ if (themeBtn) themeBtn.addEventListener("click", cycleTheme);
     { icon: "\u2192", title: "Go to Projects", hint: "Section", tag: "nav", run: go("projects"), keys: "projects work portfolio" },
     { icon: "\u2192", title: "Go to Skills", hint: "Section", tag: "nav", run: go("skills"), keys: "skills tech stack" },
     { icon: "\u2192", title: "Go to Contact", hint: "Section", tag: "nav", run: go("contact"), keys: "contact reach" },
-    { icon: "\uD83D\uDCC4", title: "View résumé", hint: "Opens PDF", tag: "file", run: open("Sai_Chappidi_Portfolio_Resume.pdf"), keys: "resume cv pdf" },
-    { icon: "\u2B07", title: "Download résumé", hint: "PDF", tag: "file", run: () => { const a = document.createElement("a"); a.href = "Sai_Chappidi_Portfolio_Resume.pdf"; a.download = "Sai_Chappidi_Portfolio_Resume.pdf"; a.click(); }, keys: "download resume cv" },
+    { icon: "\uD83D\uDCC4", title: "View résumé", hint: "Opens PDF", tag: "file", run: open("portfolioresume.pdf"), keys: "resume cv pdf" },
+    { icon: "\u2B07", title: "Download résumé", hint: "PDF", tag: "file", run: () => { const a = document.createElement("a"); a.href = "portfolioresume.pdf"; a.download = "portfolioresume.pdf"; a.click(); }, keys: "download resume cv" },
     { icon: "\u2709", title: "Email Sai", hint: "saisrisuhas.chappidi@gmail.com", tag: "link", run: open("mailto:saisrisuhas.chappidi@gmail.com"), keys: "email mail contact" },
     { icon: "\u29C9", title: "Copy email address", hint: "to clipboard", tag: "action", run: copyEmail, keys: "copy email clipboard" },
     { icon: "\u2387", title: "Open GitHub", hint: "github.com/SaiChappidi", tag: "link", run: open("https://github.com/SaiChappidi"), keys: "github code repos" },
