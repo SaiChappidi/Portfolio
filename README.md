@@ -2,6 +2,10 @@
 
 Personal portfolio website for **Sai Chappidi**, Computer Science & Engineering student at The Ohio State University.
 
+## Live site
+
+**https://saichappidi-portfolio.vercel.app/**
+
 ## Features
 
 - Responsive single-page layout (About, Experience, Projects, Skills, Contact)
